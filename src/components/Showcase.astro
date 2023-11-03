@@ -1,0 +1,121 @@
+---
+import ShowcaseCard from "./ShowcaseCard.astro";
+---
+
+<section id="showcase">
+  <div class="showcase-wrapper">
+    <h1 class="title">Showcase</h1>
+    <div class="showcase-items">
+      <ShowcaseCard
+        className="showcase-card"
+        title="Truckbays"
+        href="https://truckbays.com"
+        description="Truckbay centralizes all payments, cancellations, transfers, and customer service into one platform with two user-friendly views"
+        imageUrl="/showcase-truckbays.png"
+        alt="Truckbays"
+      />
+      <ShowcaseCard
+        className="showcase-card"
+        title="Blooming Minds"
+        href="http://www.blooming-minds-therapy.com/"
+        alt="Blooming Minds"
+        description="Blooming Minds Therapy is proud to provide ABA services at your home, school and community settings. Our main goal is help families achieve long lasting improvements in their life quality."
+        imageUrl="/showcase-blooming-minds.png"
+      />
+      <ShowcaseCard
+        className="showcase-card"
+        title="Astech"
+        href="https://astech.com/"
+        description="Vehicles have never been more complex. With asTech, collision repair has never been easier. Providing the diagnostic data, and expertise required for a quality, fast, and safe repair. First-Class Training."
+        imageUrl="/showcase-astech.png"
+        alt="Truckbays"
+      />
+      <ShowcaseCard
+        className="showcase-card"
+        title="GetAds"
+        href="https://getads.co/"
+        description="The All In One Ad Platform. Effortlessly Save Ads from Meta & Tiktok. Save from Facebook, Instagram and TikTok. Save once and you’ll have it in your library forever, even if the brand stops running it."
+        imageUrl="/showcase-getads.png"
+        alt="Truckbays"
+      />
+      <ShowcaseCard
+        className="showcase-card"
+        title="Storm Roofing"
+        href="https://storm-roofing.vercel.app/"
+        description="As a Florida company for residential and commercial properties, Storm Roofing Solution understands that most property owners does not know very much about roofing. For that reason we are focusing on providing the best roofing experience and the highest levels of customer satisfaction. We feel an obligation to not only provide service and fair prices, but we also educate our costumers, making sure that they are always satisfied with the final results."
+        imageUrl="/showcase-stormroofing.png"
+        alt="Storm Roofing"
+      />
+      <ShowcaseCard
+        className="showcase-card"
+        title="Rebuspay"
+        href="https://rebuspay.com/"
+        description="A simple, useful and intuitive personal finance assistant that can combine all your accounts in one place, monitor budgets and remind you about scheduled transactions."
+        imageUrl="/showcase-rebuspay.png"
+        alt="Rebuspay"
+      />
+    </div>
+  </div>
+</section>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const showcaseItems: HTMLDivElement =
+    document.querySelector(".showcase-items");
+
+  function getScrollAmount() {
+    let racesWidth = showcaseItems.scrollWidth;
+    return -(racesWidth - window.innerWidth);
+  }
+
+  const tween = gsap.to(showcaseItems, {
+    x: getScrollAmount,
+    duration: 3,
+    ease: "none",
+  });
+
+  ScrollTrigger.create({
+    trigger: ".showcase-wrapper",
+    start: "top 20%",
+    end: () => `+=${getScrollAmount() * -1}`,
+    pin: true,
+    animation: tween,
+    scrub: 1,
+    invalidateOnRefresh: true,
+    markers: true,
+  });
+</script>
+
+<style scoped>
+  section {
+    overflow-x: hidden;
+    padding-top: 220px;
+    max-width: 1440px;
+    margin: 0 auto;
+    min-height: 100vh;
+
+    padding: 8px 12px;
+
+    @media (min-width: 768px) {
+      padding: 12px 42px;
+      min-height: 100vh;
+    }
+  }
+
+  h1 {
+    font-size: 44px;
+  }
+
+  .showcase-items {
+    padding: 0 120px;
+    width: fit-content;
+    display: flex;
+    gap: 48px;
+    flex-wrap: nowrap;
+    margin-top: 48px;
+  }
+</style>

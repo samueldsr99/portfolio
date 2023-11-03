@@ -1,0 +1,43 @@
+.header {
+  max-width: 1440px;
+  margin: 0 auto;
+
+  padding: 22px 12px;
+
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    padding: 6px 24px;
+    justify-content: space-between;
+  }
+}
+.header > pre > a {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.navDesktop {
+  display: none;
+
+  @media (min-width: 768px) {
+    padding: 20px 40px;
+    gap: 24px;
+    display: flex;
+    align-items: center;
+  }
+}
+
+nav a {
+  font-size: 24px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 300ms;
+
+  &:hover {
+    color: #686666;
+  }
+}

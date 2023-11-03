@@ -1,0 +1,93 @@
+---
+import { Image } from "astro:assets";
+---
+
+<section id="hero">
+  <div class="hero-content">
+    <div class="left-side">
+      <h1>Hello 👋</h1>
+      <p>I'm a software developer with 3+ YoE in fullstack development</p>
+    </div>
+    <div class="right-side">
+      <Image
+        class="profile-pic"
+        src="/avatar.jpeg"
+        alt="Profile pic"
+        width={220}
+        height={220}
+      />
+    </div>
+  </div>
+</section>
+
+<script></script>
+
+<style scoped>
+  section {
+    max-width: 1440px;
+    margin: 0 auto;
+    height: calc(100vh - 72px);
+    max-height: 1024px;
+
+    padding: 8px 12px;
+
+    @media (min-width: 768px) {
+      padding: 12px 42px;
+      height: calc(100vh - 85px);
+    }
+  }
+
+  .hero-content {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 20px;
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+    }
+  }
+
+  .left-side {
+    flex-basis: 50%;
+  }
+
+  .left-side > h1 {
+    text-align: center;
+    font-size: 32px;
+
+    @media (min-width: 768px) {
+      text-align: left;
+      font-size: 44px;
+    }
+  }
+  .left-side > p {
+    text-align: center;
+    font-size: 16px;
+
+    @media (min-width: 768px) {
+      text-align: left;
+      font-size: 20px;
+    }
+  }
+
+  .right-side {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .profile-pic {
+    width: 260px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 50%;
+
+    @media (min-width: 768px) {
+      width: 320px;
+      height: 320px;
+    }
+  }
+</style>
