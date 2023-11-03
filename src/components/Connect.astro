@@ -1,0 +1,157 @@
+---
+const contacts = [
+  {
+    alt: "LinkedIn",
+    href: "https://linkedin.com/in/samueldsr99",
+    icon: "/linkedin-icon.svg",
+  },
+  {
+    alt: "Github",
+    href: "https://github.com/samueldsr99",
+    icon: "/github-icon.svg",
+  },
+  {
+    alt: "Instagram",
+    href: "https://www.instagram.com/samueldsr8/",
+    icon: "/instagram-icon.svg",
+  },
+  {
+    alt: "Twitter",
+    href: "https://twitter.com/samueldsr99",
+    icon: "/twitter-icon.svg",
+  },
+];
+---
+
+<section id="connect">
+  <h1 class="connect-title">Let's connect!</h1>
+
+  <ul class="connect-links">
+    {
+      contacts.map((contact) => (
+        <li>
+          <a href={contact.href}>
+            <img src={contact.icon} width={40} height={40} alt={contact.alt} />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <div class="content-break">
+    <hr />
+    <span>Or</span>
+    <hr />
+  </div>
+
+  <a
+    class="cv-link"
+    href="https://drive.google.com/file/d/1gOjF3SNFB9aofzadUl4GSKWJ0Xak-vp8/view?usp=drive_link"
+    target="_blank"
+  >
+    Download my CV</a
+  >
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  const links = document.querySelectorAll(".connect-links li");
+  const title = document.querySelector(".connect-title");
+  const contentBreak = document.querySelector(".content-break");
+  const cvLink = document.querySelector(".cv-link");
+
+  const tl = gsap.timeline();
+
+  tl.fromTo(title, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.7 });
+  links.forEach((link, i) => {
+    tl.fromTo(link, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.2 });
+  });
+  tl.fromTo(
+    contentBreak,
+    { opacity: 0, y: 10 },
+    { opacity: 1, y: 0, duration: 0.2, delay: 0.5 }
+  );
+  tl.fromTo(cvLink, { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.2 });
+
+  ScrollTrigger.create({
+    trigger: title,
+    start: "top 80%",
+    animation: tl,
+  });
+</script>
+
+<style scoped>
+  section {
+    max-width: 1440px;
+    margin: 0 auto;
+    min-height: 100vh;
+
+    padding: 8px 12px;
+
+    @media (min-width: 768px) {
+      padding: 12px 42px;
+    }
+  }
+  .connect-title {
+    font-size: 40px;
+    opacity: 0;
+    margin-top: 220px;
+    text-align: center;
+
+    @media (min-width: 768px) {
+      font-size: 58px;
+    }
+  }
+
+  .connect-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+
+    margin-top: 32px;
+  }
+  .connect-links li {
+    opacity: 0;
+  }
+
+  .content-break {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    margin-top: 32px;
+    margin-bottom: 32px;
+  }
+  .content-break > hr {
+    width: 100%;
+    height: 1px;
+    background-color: #e0e0e0;
+    max-width: 200px;
+  }
+  .content-break > span {
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+
+  .cv-link {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    margin-top: 32px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    background-color: #4a4848;
+    font-size: 16px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: box-shadow 0.15s ease-in-out;
+
+    &:hover {
+      box-shadow: rgba(23, 92, 230, 0.75) 0px 0px 20px;
+    }
+  }
+</style>

@@ -12,9 +12,10 @@ const Navbar = () => {
         </a>
       </pre>
       <nav className={styles.navDesktop}>
-        <a href="#">Home</a>
-        <a href="#showcase">Showcase</a>
         <a href="#experience">Experience</a>
+        <a href="#showcase">Showcase</a>
+        <a href="#skills">Skills</a>
+        <a href="#connect">Connect</a>
       </nav>
     </header>
   );

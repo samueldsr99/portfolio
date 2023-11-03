@@ -1,0 +1,153 @@
+---
+import ExperienceEntry from "./ExperienceEntry.astro";
+---
+
+<section id="experience">
+  <h1>Experience</h1>
+  <div class="grid">
+    <div class="grid-left">
+      <ExperienceEntry
+        side="left"
+        role="Frontend Developer"
+        company="Lht Technologies"
+        location="Mérida Yucatán"
+        startDate="Jul 2022"
+        endDate="Present"
+      />
+      <ExperienceEntry
+        side="left"
+        role="Frontend Developer"
+        company="La Pikera"
+        location="Havana, Cuba"
+        startDate="Jun 2020"
+        endDate="Dec 2020"
+      />
+      <ExperienceEntry
+        side="left"
+        role="Fullstack Developer"
+        company="Blooming Minds"
+        location="Miami, FL"
+        startDate="Jul 2019"
+        endDate="Dec 2019"
+      />
+    </div>
+    <div class="grid-center">
+      <div class="blue-track">
+        <img class="train" src="/train-icon.svg" alt="Train" width={24} />
+      </div>
+    </div>
+    <div class="grid-right">
+      <ExperienceEntry
+        side="right"
+        role="Fullstack Developer"
+        company="Truckbays"
+        location="Miami, FL"
+        startDate="Jan 2021"
+        endDate="Jul 2022"
+      />
+      <ExperienceEntry
+        side="right"
+        role="Frontend Developer"
+        company="Storm Roofing"
+        location="Miami, FL"
+        startDate="Jan 2020"
+        endDate="Aug 2020"
+      />
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  const train = document.querySelector(".train");
+
+  const tween = gsap.to(train, {
+    y: 480,
+    duration: 3,
+    ease: "none",
+  });
+
+  ScrollTrigger.create({
+    trigger: ".grid-center",
+    start: "top 70%",
+    end: "bottom 30%",
+    scrub: true,
+    animation: tween,
+  });
+</script>
+
+<style scoped>
+  section {
+    max-width: 1440px;
+    margin: 0 auto;
+
+    padding: 8px 12px;
+
+    @media (min-width: 768px) {
+      padding: 12px 42px;
+    }
+  }
+
+  h1 {
+    font-size: 44px;
+  }
+
+  .grid {
+    padding-top: 60px;
+    max-width: 768px;
+    margin: 0 auto;
+    min-height: 800px;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-gap: 24px;
+  }
+  .grid-left {
+    grid-column: 1 / span 10;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    justify-content: space-between;
+    @media (min-width: 768px) {
+      grid-column: 1 / span 4;
+    }
+  }
+  .grid-center {
+    display: flex;
+    justify-content: center;
+    grid-column: 5 / span 2;
+  }
+  .grid-right {
+    grid-column: 1 / span 10;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    justify-content: space-evenly;
+    @media (min-width: 768px) {
+      grid-column: 7 / span 4;
+    }
+  }
+
+  .train {
+    position: absolute;
+    left: 0;
+    right: 0;
+  }
+  .blue-track {
+    display: none;
+    @media (min-width: 768px) {
+      display: block;
+      position: relative;
+      width: 24px;
+      height: 100%;
+      background: linear-gradient(
+        0deg,
+        rgb(255 255 255/0) 0%,
+        hsla(220, 62%, 25%, 0.5) 15%,
+        hsla(220, 62%, 25%, 0.5) 85%,
+        rgb(255 255 255/0) 100%
+      );
+    }
+  }
+</style>

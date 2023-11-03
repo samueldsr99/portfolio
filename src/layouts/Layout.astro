@@ -15,6 +15,10 @@ const { title } = Astro.props;
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
+    />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
@@ -51,6 +55,10 @@ const { title } = Astro.props;
     color: unset;
   }
 
+  ul {
+    list-style-type: none;
+  }
+
   .cursor {
     display: none;
     position: fixed;
@@ -66,6 +74,9 @@ const { title } = Astro.props;
 </style>
 
 <script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
   // const cursor: HTMLDivElement = document.querySelector(".cursor");
 
   // document.addEventListener("mousemove", (e) => {

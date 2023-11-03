@@ -1,0 +1,45 @@
+---
+interface Props {
+  side: "left" | "right";
+  role: string;
+  company: string;
+  location: string;
+  startDate: string;
+  endDate: string;
+}
+
+const { side, role, company, location, startDate, endDate } = Astro.props;
+---
+
+<article class="experience-entry">
+  <h4>{role}</h4>
+  <h5>{company} | {location}</h5>
+  <p>{startDate} - {endDate}</p>
+</article>
+
+<style scoped>
+  article {
+    padding: 32px;
+    border-radius: 12px;
+    border: 1px solid hsl(220, 62%, 25%);
+    box-shadow: rgba(23, 92, 230, 0.15) 0px 4px 24px;
+    &:hover {
+      box-shadow: rgba(23, 92, 230, 0.45) 0px 4px 24px;
+    }
+  }
+  article > h4 {
+    color: hsl(220, 80%, 75%);
+    font-size: 20px;
+    font-weight: 700;
+  }
+  article > h5 {
+    font-size: 14px;
+    font-weight: 400;
+  }
+  article > p {
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 400;
+    color: hsl(246, 6%, 65%);
+  }
+</style>

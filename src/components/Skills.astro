@@ -1,0 +1,96 @@
+---
+import SkillsTopic from "./SkillsTopic.astro";
+
+const frontendDevSkills = [
+  {
+    src: "/js-icon.svg",
+    alt: "Javascript",
+  },
+  {
+    src: "/react-icon.svg",
+    alt: "React",
+  },
+  {
+    src: "/nextjs-icon.svg",
+    alt: "Next.js",
+  },
+];
+
+const otherSkills = [
+  {
+    src: "/git-icon.svg",
+    alt: "Git",
+  },
+];
+---
+
+<section id="skills">
+  <h1>Skills</h1>
+  <div class="skills-grid">
+    <SkillsTopic title="Programming Languages">
+      <i class="devicon-html5-plain colored"></i>
+      <i class="devicon-css3-plain colored"></i>
+      <i class="devicon-javascript-plain colored"></i>
+      <i class="devicon-typescript-plain colored"></i>
+      <i class="devicon-csharp-plain-wordmark"></i>
+      <i class="devicon-python-plain colored"></i>
+    </SkillsTopic>
+    <SkillsTopic title="Frontend development">
+      <i class="devicon-react-original colored"></i>
+      <i class="devicon-nextjs-original-wordmark"></i>
+      <i class="devicon-materialui-plain"></i>
+      <i class="devicon-tailwindcss-plain colored"></i>
+    </SkillsTopic>
+
+    <SkillsTopic title="Backend development">
+      <i class="devicon-express-original-wordmark"></i>
+      <i class="devicon-nestjs-plain colored"></i>
+      <i class="devicon-django-plain"></i>
+      <i class="devicon-dotnetcore-plain"></i>
+      <i class="devicon-amazonwebservices-original colored"></i>
+    </SkillsTopic>
+
+    <SkillsTopic title="Other tools">
+      <i class="devicon-git-plain colored"></i>
+      <i class="devicon-github-original"></i>
+      <i class="devicon-gitlab-plain colored"></i>
+      <i class="devicon-bitbucket-original colored"></i>
+      <i class="devicon-jira-plain colored"></i>
+    </SkillsTopic>
+  </div>
+</section>
+
+<style scoped>
+  section {
+    margin-top: 200px;
+    max-width: 1440px;
+    margin: 0 auto;
+
+    padding: 8px 12px;
+
+    @media (min-width: 768px) {
+      padding: 12px 42px;
+    }
+  }
+
+  h1 {
+    font-size: 44px;
+  }
+
+  i {
+    font-size: 44px;
+  }
+
+  .skills-grid {
+    margin-top: 48px;
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 68px;
+    column-gap: 14px;
+
+    @media (min-width: 768px) {
+      grid-template-columns: 1fr 1fr;
+      row-gap: 142px;
+    }
+  }
+</style>

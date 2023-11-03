@@ -56,6 +56,8 @@ import ShowcaseCard from "./ShowcaseCard.astro";
       />
     </div>
   </div>
+
+  <div class="offset"></div>
 </section>
 
 <script>
@@ -68,8 +70,8 @@ import ShowcaseCard from "./ShowcaseCard.astro";
     document.querySelector(".showcase-items");
 
   function getScrollAmount() {
-    let racesWidth = showcaseItems.scrollWidth;
-    return -(racesWidth - window.innerWidth);
+    const showcasesWidth = showcaseItems.scrollWidth;
+    return -(showcasesWidth - window.innerWidth);
   }
 
   const tween = gsap.to(showcaseItems, {
@@ -85,29 +87,27 @@ import ShowcaseCard from "./ShowcaseCard.astro";
     pin: true,
     animation: tween,
     scrub: 1,
-    invalidateOnRefresh: true,
-    markers: true,
   });
 </script>
 
 <style scoped>
   section {
     overflow-x: hidden;
-    padding-top: 220px;
     max-width: 1440px;
     margin: 0 auto;
-    min-height: 100vh;
 
     padding: 8px 12px;
 
     @media (min-width: 768px) {
       padding: 12px 42px;
-      min-height: 100vh;
     }
   }
 
   h1 {
     font-size: 44px;
+  }
+  .showcase-wrapper {
+    padding-top: 40px;
   }
 
   .showcase-items {
@@ -117,5 +117,9 @@ import ShowcaseCard from "./ShowcaseCard.astro";
     gap: 48px;
     flex-wrap: nowrap;
     margin-top: 48px;
+  }
+
+  .offset {
+    height: 220px;
   }
 </style>

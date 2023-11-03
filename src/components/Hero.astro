@@ -5,8 +5,11 @@ import { Image } from "astro:assets";
 <section id="hero">
   <div class="hero-content">
     <div class="left-side">
-      <h1>Hello 👋</h1>
-      <p>I'm a software developer with 3+ YoE in fullstack development</p>
+      <h1>Hi, folks! 👋</h1>
+      <p class="presentation">
+        I'm a fullstack developer with 3+ YoE. Passionate about web performance
+        and competitive programming.
+      </p>
     </div>
     <div class="right-side">
       <Image
@@ -50,7 +53,15 @@ import { Image } from "astro:assets";
   }
 
   .left-side {
+    padding-left: 40px;
+    padding-right: 40px;
+    margin-top: 24px;
     flex-basis: 50%;
+    @media (min-width: 768px) {
+      margin-top: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 
   .left-side > h1 {
