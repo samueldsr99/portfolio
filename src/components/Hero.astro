@@ -7,8 +7,8 @@ import { Image } from "astro:assets";
     <div class="left-side">
       <h1>Hi, folks! 👋</h1>
       <p class="presentation">
-        I'm a fullstack developer with 3+ YoE. Passionate about web performance
-        and competitive programming.
+        <!-- I'm a fullstack developer with 3+ YoE. Passionate about web performance
+        and competitive programming. -->
       </p>
     </div>
     <div class="right-side">
@@ -23,7 +23,26 @@ import { Image } from "astro:assets";
   </div>
 </section>
 
-<script></script>
+<script>
+  import { gsap } from "gsap";
+  import { TextPlugin } from "gsap/TextPlugin";
+
+  gsap.registerPlugin(TextPlugin);
+
+  const presentation = document.querySelector(".presentation");
+
+  const tween = gsap.to(presentation, {
+    text: {
+      value:
+        "I'm a fullstack developer with 3+ YoE. Passionate about web performance and competitive programming.",
+    },
+    ease: "none",
+    duration: 5,
+    delay: 1,
+  });
+
+  tween.play();
+</script>
 
 <style scoped>
   section {
@@ -44,7 +63,6 @@ import { Image } from "astro:assets";
     margin-top: 80px;
     display: flex;
     flex-direction: column-reverse;
-    align-items: center;
     gap: 20px;
 
     @media (min-width: 768px) {
@@ -55,7 +73,7 @@ import { Image } from "astro:assets";
   .left-side {
     padding-left: 40px;
     padding-right: 40px;
-    margin-top: 24px;
+    padding-top: 84px;
     flex-basis: 50%;
     @media (min-width: 768px) {
       margin-top: 0;

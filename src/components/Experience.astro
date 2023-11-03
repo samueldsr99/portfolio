@@ -69,12 +69,43 @@ import ExperienceEntry from "./ExperienceEntry.astro";
     ease: "none",
   });
 
+  const gridLeftItems = document.querySelectorAll(".grid-left > *");
+  const gridRightItems = document.querySelectorAll(".grid-right > *");
+
   ScrollTrigger.create({
     trigger: ".grid-center",
     start: "top 70%",
     end: "bottom 30%",
     scrub: true,
     animation: tween,
+  });
+
+  gridLeftItems.forEach((item) => {
+    ScrollTrigger.create({
+      trigger: item,
+      start: "top 100%",
+      end: "bottom 30%",
+      scrub: true,
+      animation: gsap.fromTo(
+        item,
+        { x: -100, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.1 }
+      ),
+    });
+  });
+
+  gridRightItems.forEach((item) => {
+    ScrollTrigger.create({
+      trigger: item,
+      start: "top 70%",
+      end: "bottom 30%",
+      scrub: true,
+      animation: gsap.fromTo(
+        item,
+        { x: 100, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.1 }
+      ),
+    });
   });
 </script>
 
